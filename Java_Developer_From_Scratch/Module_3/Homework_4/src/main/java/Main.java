@@ -7,18 +7,19 @@ public class Main {
     public static void main(String[] args) {
         int value = new Random().nextInt(100);
         System.out.println("Введите число:");
+        int attempt;
 
-        while (true) {
-            int attempt = new Scanner(System.in).nextInt();
+        do {
+            attempt = new Scanner(System.in).nextInt();
 
-            if (attempt == value) {
-                System.out.println("Вы угадали!");
-                break;
-            } else if (attempt > value) {
+            if (attempt > value) {
                 System.out.println("Загаданное число меньше");
-            } else {
+            } else if (attempt < value) {
                 System.out.println("Загаданное число больше");
+            } else {
+                System.out.println("Вы угадали!");
             }
         }
+        while (attempt != value);
     }
 }
